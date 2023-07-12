@@ -27,7 +27,6 @@ const bot = new TelegramBot("5572141228:AAF0mT8Mw-RC9hXRzD7IGlgzSAPk7UhnQKk", { 
     });
 
     await elementStatus.forEach(async (singleStatus, index) => {
-      console.log(singleStatus);
       if (singleStatus === true) {
         if (Number(elementValues[index][0]) > 5) {
           await bot.sendMessage(1410551694, `${elementNames[index]}: -${elementValues[index][0]}`);
