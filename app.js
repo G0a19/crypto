@@ -6,6 +6,7 @@ const TelegramBot = require("node-telegram-bot-api");
     const bot = new TelegramBot("5572141228:AAF0mT8Mw-RC9hXRzD7IGlgzSAPk7UhnQKk", { polling: true });
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
+    await page.setDefaultNavigationTimeout(0);
     await page.goto("https://coinmarketcap.com/");
     await page.waitForSelector(".cmc-table");
 
