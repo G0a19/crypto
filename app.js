@@ -36,5 +36,5 @@ const bot = new TelegramBot("5572141228:AAF0mT8Mw-RC9hXRzD7IGlgzSAPk7UhnQKk", { 
     });
 
     await browser.close();
-  }, 3000);
+  }, 60000);
 })();
