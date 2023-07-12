@@ -3,7 +3,7 @@ const TelegramBot = require("node-telegram-bot-api");
 
 const bot = new TelegramBot("5572141228:AAF0mT8Mw-RC9hXRzD7IGlgzSAPk7UhnQKk", { polling: true });
 
-(async (bot) => {
+(async () => {
   setInterval(async () => {
     console.log("starting new scan...");
     const browser = await puppeteer.launch();
@@ -27,13 +27,14 @@ const bot = new TelegramBot("5572141228:AAF0mT8Mw-RC9hXRzD7IGlgzSAPk7UhnQKk", { 
     });
 
     await elementStatus.forEach(async (singleStatus, index) => {
-      if (singleStatus === false) {
-        if (Number(elementValues[index][0]) > 4) {
+      console.log(singleStatus);
+      if (singleStatus === true) {
+        if (Number(elementValues[index][0]) > 5) {
           await bot.sendMessage(1410551694, `${elementNames[index]}: -${elementValues[index][0]}`);
         }
       }
     });
 
     await browser.close();
-  }, 60000);
-})(bot);
+  }, 3000);
+})();
